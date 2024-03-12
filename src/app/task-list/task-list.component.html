@@ -1,0 +1,54 @@
+<div class="table-container ">
+    <mat-table class="mat-elevation-z8" [dataSource]="tasks">
+      <!-- Sl No. Column -->
+      <ng-container matColumnDef="slNo">
+        <mat-header-cell *matHeaderCellDef> Sl No. </mat-header-cell>
+        <mat-cell *matCellDef="let task; let i = index"> {{ i + 1 }} </mat-cell>
+      </ng-container>
+  
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef > Title </mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.title }} </mat-cell>
+      </ng-container>
+  
+      <!-- Due Date Column -->
+      <ng-container matColumnDef="dueDate">
+        <mat-header-cell *matHeaderCellDef> Due Date </mat-header-cell>
+        <mat-cell *matCellDef="let task"> {{ task.dueDate | date: 'shortDate' }} </mat-cell>
+      </ng-container>
+      
+      <!-- Status Column -->
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+        <mat-cell *matCellDef="let task">
+          {{ task.status }}
+        </mat-cell>
+      </ng-container>
+  
+              <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <mat-header-cell *matHeaderCellDef class="mat-column-action mat-header-cell-centered">
+            Action
+          </mat-header-cell>
+          <mat-cell *matCellDef="let task" class="mat-column-action mat-cell-centered">
+            <button mat-icon-button (click)="editTask(task)" class="icon-button">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button class="icon-button" (click)="deleteTask(task)">
+              <mat-icon>delete</mat-icon>
+            </button>
+            <button mat-icon-button class="icon-button" (click)="showTaskDetails(task)">
+              <mat-icon>info</mat-icon>
+            </button>
+          </mat-cell>
+        </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  
+  <button mat-mini-fab class="floating-button" color="primary" (click)="openCreateTaskDialog()">
+    <mat-icon>add</mat-icon>
+  </button>
+  

@@ -1,0 +1,60 @@
+.container-sm {
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top:20px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+
+.mat-form-field {
+    height: 40px; 
+  }
+  
+  .mat-input-element {
+    border: 1px solid #ced4da;
+    height: 28px; 
+    padding: 5px; 
+  }
+  
+  .mat-form-field-outline-start .mat-form-field-outline-end {
+    border-width: 1px;
+    height: 28px; 
+  }
+  
+  .mat-form-field-appearance-outline .mat-form-field-flex {
+    background-color: transparent;
+    height: 28px; 
+  }
+
+  button {
+    margin-top: 10px;
+  }
+  
+  button.save-button {
+    background-color: #33ccff;
+    color: white;
+    width:85px;
+    
+  }
+
+  button.cancel-button {
+    background-color: white !important;
+    color: #33ccff;
+    border: 1px solid #33ccff;
+  }
+
+  .small-popup {
+    width: 100px !important;
+  }
+
+  .buttonClass{
+    text-align:right;
+  }
+
+  .cancelAlignment{
+    text-align:left;
+  }
+  

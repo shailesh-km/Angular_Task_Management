@@ -1,0 +1,58 @@
+<!-- create-task.component.html -->
+<div class="container container-sm">
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm)">
+      <div class="col-md-12">
+        <div class="row">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Title</mat-label>
+            <input matInput name="title" [(ngModel)]="task.title" required>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Description</mat-label>
+            <textarea matInput name="description" [(ngModel)]="task.description" required></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Status</mat-label>
+            <mat-select  name="status" [(ngModel)]="task.status" required>
+              <mat-option *ngFor="let option of statusOptions" [value]="option">
+                {{ option }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-12">
+          <mat-form-field class="w-100" appearance="outline">
+            <mat-label>Due Date</mat-label>
+            <input matInput [matDatepicker]="picker" name="dueDate" [(ngModel)]="task.dueDate" required matDatepickerInput>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      
+  
+      <div class="row">
+        <div class="col-6 buttonClass" >
+          <button mat-raised-button color="primary" type="submit" class = "save-button">Save</button>
+          
+        </div>
+        <div class="col-6 cancelAlignment">
+          <button mat-raised-button color="warn" type="button" class="cancel-button" (click)="listTask()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  

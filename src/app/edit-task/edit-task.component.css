@@ -1,0 +1,30 @@
+.custom-label {
+    color: #33ccff;
+    font-size: 28px;
+    margin: 5px;
+    padding: 5px;
+    text-align: left;
+   
+  }
+
+  button.save-button {
+    background-color: #33ccff;
+    color: white;
+    
+  }
+
+  button.cancel-button {
+    background-color: white;
+    color: #33ccff;
+    border: 1px solid #33ccff;
+  }
+
+  .rowAlignment{
+    padding-top:20px;
+    margin:auto;
+  }
+
+  .statusRow{
+    padding-top:10px;
+    margin:auto;
+  }

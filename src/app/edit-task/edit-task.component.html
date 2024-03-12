@@ -1,0 +1,55 @@
+<!-- edit-task.component.html -->
+<form [formGroup]="editTaskForm" (ngSubmit)="onSubmit()">
+    <label class="custom-label">Edit Task</label>
+    <div class="row rowAlignment" >
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+              <input matInput formControlName="title" required>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description" required></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+   
+  
+    
+    <input type="hidden" formControlName="serialNo">
+    <div class="row  statusRow">
+        <div class="col-6">
+            <mat-form-field appearance="outline">
+                <mat-label>Status</mat-label>
+              <mat-select formControlName="status" required>
+                <mat-option *ngFor="let option of statusOptions" [value]="option">{{ option }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+        </div>
+
+        <div class="col-6">
+            <mat-form-field appearance="outline" style="width:95%">
+                <mat-label>Due date</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="dueDate" required>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+    
+  
+    
+  <div class="row rowAlignment" >
+    <div class="col-6" style= "text-align:right">
+        <button mat-raised-button class="save-button" type="submit" [disabled]="!editTaskForm.valid">Update</button>
+    </div>
+    <div class="col-6" style= "text-align:left">
+        <button mat-raised-button color="primary" class="cancel-button" type="button" (click)="onCancel()">Cancel</button>
+    </div>
+  </div>
+    
+  </form>
+  
